@@ -50,9 +50,22 @@
 
          <div class="table-container">
                    <asp:GridView ID="gridview" runat="server" Height="249px" CssClass="table is-selected">
+                <Columns>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <span class="icon is-small is-left">
+                                <a href="Estatus_CS_Edit.aspx?ID=<%# DataBinder.Eval(Container.DataItem, "id") %>">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                            </span>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
             </asp:GridView>
-           
+
              </div>
+
+         
 
          <div>
                  <div>

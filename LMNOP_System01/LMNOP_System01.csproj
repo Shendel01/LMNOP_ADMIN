@@ -113,6 +113,7 @@
     <Content Include="Pages\Estatus_CD.aspx" />
     <Content Include="Pages\Estatus_CL.aspx" />
     <Content Include="Pages\Estatus_CS.aspx" />
+    <Content Include="Pages\Estatus_CS_Edit.aspx" />
     <Content Include="Pages\Index.aspx" />
     <Content Include="Pages\Inventarios.aspx" />
     <Content Include="Pages\Inv_AS.aspx" />
@@ -258,6 +259,13 @@
     </Compile>
     <Compile Include="Pages\Estatus_CS.aspx.designer.cs">
       <DependentUpon>Estatus_CS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Estatus_CS_Edit.aspx.cs">
+      <DependentUpon>Estatus_CS_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Estatus_CS_Edit.aspx.designer.cs">
+      <DependentUpon>Estatus_CS_Edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
