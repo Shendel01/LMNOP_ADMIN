@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LMNOP_SystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Atencion_Sucursales">
+          <Key>
+            <PropertyRef Name="Id_AtencionSucursales" />
+          </Key>
+          <Property Name="Id_AtencionSucursales" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Num_maquila" Type="int" />
+          <Property Name="Documento" Type="nvarchar" MaxLength="500" />
+          <Property Name="Division" Type="int" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Hora" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Calidad_Detenido">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Defecto" Type="varchar" MaxLength="50" />
+          <Property Name="Seguimiento" Type="varchar" MaxLength="50" />
+          <Property Name="Comentario" Type="varchar" MaxLength="150" />
+          <Property Name="Nombre_detenido" Type="varchar" MaxLength="50" />
+          <Property Name="Num_maquila" Type="int" />
+          <Property Name="Tipo_defecto" Type="varchar" MaxLength="14" />
+          <Property Name="Codigo_segundas" Type="numeric" Precision="20" Scale="6" />
+          <Property Name="Reproceso" Type="varchar" MaxLength="2" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Hora" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Calidad_Liberacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estatus" Type="varchar" MaxLength="150" />
+          <Property Name="Nombre_libera" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Num_maquila" Type="int" />
+          <Property Name="Hora" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Centro_servicio">
+          <Key>
+            <PropertyRef Name="Num_OFE" />
+          </Key>
+          <Property Name="Num_OFE" Type="int" Nullable="false" />
+          <Property Name="Codigo_primera" Type="varchar" MaxLength="100" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Operadores" Type="varchar" MaxLength="50" />
+          <Property Name="Turno" Type="varchar" MaxLength="50" />
+          <Property Name="Pedaceria" Type="varchar" MaxLength="50" />
+          <Property Name="Faltante" Type="varchar" MaxLength="50" />
+          <Property Name="Sobrante" Type="varchar" MaxLength="50" />
+          <Property Name="Rechazo" Type="varchar" MaxLength="50" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="50" />
+          <Property Name="Total" Type="numeric" Precision="20" Scale="6" />
+        </EntityType>
+        <EntityType Name="Estatus01_CentroServicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Maquila" Type="int" />
+          <Property Name="Estatus" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Permisos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Permisos">
+          <Key>
+            <PropertyRef Name="Id_Permiso" />
+          </Key>
+          <Property Name="Id_Permiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Permiso" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Roles' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id_Rol" />
+          </Key>
+          <Property Name="Id_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_rol" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Roles_Permisos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Roles_Permisos">
+          <Key>
+            <PropertyRef Name="Id_rol_permiso" />
+          </Key>
+          <Property Name="Id_rol_permiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_rol" Type="int" />
+          <Property Name="Id_Permiso" Type="int" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="Segundas_CentroServicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Num_segundas" Type="int" />
+          <Property Name="Num_piezas" Type="int" />
+          <Property Name="Kg" Type="numeric" Precision="20" Scale="0" />
+        </EntityType>
+        <EntityType Name="Tarimas_CentroServicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Num_tarima" Type="nchar" MaxLength="2" />
+          <Property Name="Num_maquila" Type="int" />
+          <Property Name="Num_piezas" Type="int" />
+          <Property Name="Kg" Type="numeric" Precision="20" Scale="6" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Id_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Edad" Type="int" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" />
+          <Property Name="Clave" Type="varchar" MaxLength="50" />
+          <Property Name="Id_rol" Type="int" />
+        </EntityType>
+        <Function Name="Consultar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ConsultarAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Guardar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Num_OF" Type="int" Mode="In" />
+          <Parameter Name="Codigo_primera" Type="varchar" Mode="In" />
+          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="Kg" Type="numeric" Mode="In" />
+          <Parameter Name="Num_tarimas" Type="int" Mode="In" />
+          <Parameter Name="Operadores" Type="varchar" Mode="In" />
+          <Parameter Name="Turno" Type="varchar" Mode="In" />
+          <Parameter Name="Pedaceria" Type="varchar" Mode="In" />
+          <Parameter Name="Faltante" Type="varchar" Mode="In" />
+          <Parameter Name="Sobrante" Type="varchar" Mode="In" />
+          <Parameter Name="Rechazo" Type="varchar" Mode="In" />
+          <Parameter Name="Observaciones" Type="varchar" Mode="In" />
+          <Parameter Name="Total" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="GuardarAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id_AtencionSucursales" Type="int" Mode="In" />
+          <Parameter Name="Num_maquila" Type="int" Mode="In" />
+          <Parameter Name="Division" Type="int" Mode="In" />
+          <Parameter Name="Fecha" Type="date" Mode="In" />
+          <Parameter Name="Hora" Type="time" Mode="In" />
+        </Function>
+        <Function Name="sp_datos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
+          <Parameter Name="Clave" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Patron" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_permisos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id_Rol" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_registrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Edad" Type="int" Mode="In" />
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
+          <Parameter Name="Clave" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Id_Rol" Type="int" Mode="In" />
+          <Parameter Name="Patron" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="LMNOP_SystemModelStoreContainer">
+          <EntitySet Name="Atencion_Sucursales" EntityType="Self.Atencion_Sucursales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Calidad_Detenido" EntityType="Self.Calidad_Detenido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Calidad_Liberacion" EntityType="Self.Calidad_Liberacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Centro_servicio" EntityType="Self.Centro_servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estatus01_CentroServicio" EntityType="Self.Estatus01_CentroServicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Segundas_CentroServicio" EntityType="Self.Segundas_CentroServicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tarimas_CentroServicio" EntityType="Self.Tarimas_CentroServicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permisos" EntityType="Self.Permisos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Permisos].[Id_Permiso] AS [Id_Permiso], 
+    [Permisos].[Nombre_Permiso] AS [Nombre_Permiso]
+    FROM [dbo].[Permisos] AS [Permisos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Roles" EntityType="Self.Roles" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Roles].[Id_Rol] AS [Id_Rol], 
+    [Roles].[Nombre_rol] AS [Nombre_rol]
+    FROM [dbo].[Roles] AS [Roles]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Roles_Permisos" EntityType="Self.Roles_Permisos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Roles_Permisos].[Id_rol_permiso] AS [Id_rol_permiso], 
+    [Roles_Permisos].[Id_rol] AS [Id_rol], 
+    [Roles_Permisos].[Id_Permiso] AS [Id_Permiso], 
+    [Roles_Permisos].[Estado] AS [Estado]
+    FROM [dbo].[Roles_Permisos] AS [Roles_Permisos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Usuarios].[Id_Usuario] AS [Id_Usuario], 
+    [Usuarios].[Nombre] AS [Nombre], 
+    [Usuarios].[Edad] AS [Edad], 
+    [Usuarios].[Usuario] AS [Usuario], 
+    [Usuarios].[Clave] AS [Clave], 
+    [Usuarios].[Id_rol] AS [Id_rol]
+    FROM [dbo].[Usuarios] AS [Usuarios]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LMNOP_SystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Permisos">
+          <Key>
+            <PropertyRef Name="Id_Permiso" />
+          </Key>
+          <Property Name="Id_Permiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Permiso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id_Rol" />
+          </Key>
+          <Property Name="Id_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Roles_Permisos">
+          <Key>
+            <PropertyRef Name="Id_rol_permiso" />
+          </Key>
+          <Property Name="Id_rol_permiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_rol" Type="Int32" />
+          <Property Name="Id_Permiso" Type="Int32" />
+          <Property Name="Estado" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Edad" Type="Int32" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_rol" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="LMNOP_SystemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Permisos" EntityType="Self.Permisos" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
+          <EntitySet Name="Roles_Permisos" EntityType="Self.Roles_Permisos" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <FunctionImport Name="sp_datos" ReturnType="Collection(LMNOP_SystemModel.sp_datos_Result)" />
+          <FunctionImport Name="sp_login" ReturnType="Collection(LMNOP_SystemModel.sp_login_Result)">
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+            <Parameter Name="Clave" Mode="In" Type="String" />
+            <Parameter Name="Patron" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_permisos" ReturnType="Collection(LMNOP_SystemModel.sp_permisos_Result)">
+          <Parameter Name="Id_Rol" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_registrar">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Edad" Mode="In" Type="Int32" />
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+            <Parameter Name="Clave" Mode="In" Type="String" />
+            <Parameter Name="Id_Rol" Mode="In" Type="Int32" />
+            <Parameter Name="Patron" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Consultar" ReturnType="Collection(LMNOP_SystemModel.Consultar_Result)" />
+          <FunctionImport Name="Guardar">
+            <Parameter Name="Num_OF" Mode="In" Type="Int32" />
+            <Parameter Name="Codigo_primera" Mode="In" Type="String" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="Kg" Mode="In" Type="Decimal" />
+            <Parameter Name="Num_tarimas" Mode="In" Type="Int32" />
+            <Parameter Name="Operadores" Mode="In" Type="String" />
+            <Parameter Name="Turno" Mode="In" Type="String" />
+            <Parameter Name="Pedaceria" Mode="In" Type="String" />
+            <Parameter Name="Faltante" Mode="In" Type="String" />
+            <Parameter Name="Sobrante" Mode="In" Type="String" />
+            <Parameter Name="Rechazo" Mode="In" Type="String" />
+            <Parameter Name="Observaciones" Mode="In" Type="String" />
+            <Parameter Name="Total" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ConsultarAS" ReturnType="Collection(LMNOP_SystemModel.ConsultarAS_Result)" />
+          <FunctionImport Name="GuardarAS">
+            <Parameter Name="Id_AtencionSucursales" Mode="In" Type="Int32" />
+            <Parameter Name="Num_maquila" Mode="In" Type="Int32" />
+            <Parameter Name="Division" Mode="In" Type="Int32" />
+            <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="Hora" Mode="In" Type="Time" />
+          </FunctionImport>
+          <EntitySet Name="Atencion_Sucursales" EntityType="LMNOP_SystemModel.Atencion_Sucursales" />
+          <EntitySet Name="Tarimas_CentroServicio" EntityType="LMNOP_SystemModel.Tarimas_CentroServicio" />
+          <EntitySet Name="Segundas_CentroServicio" EntityType="LMNOP_SystemModel.Segundas_CentroServicio" />
+          <EntitySet Name="Estatus01_CentroServicio" EntityType="LMNOP_SystemModel.Estatus01_CentroServicio" />
+          <EntitySet Name="Calidad_Liberacion" EntityType="LMNOP_SystemModel.Calidad_Liberacion" />
+          <EntitySet Name="Centro_servicio" EntityType="LMNOP_SystemModel.Centro_servicio" />
+          <EntitySet Name="Calidad_Detenido" EntityType="LMNOP_SystemModel.Calidad_Detenido" />
+        </EntityContainer>
+        <ComplexType Name="sp_datos_Result">
+          <Property Type="Int32" Name="Id_Usuario" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Edad" Nullable="true" />
+          <Property Type="String" Name="Usuario" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Clave" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Id_rol" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_login_Result">
+          <Property Type="Int32" Name="Id_Usuario" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Edad" Nullable="true" />
+          <Property Type="String" Name="Usuario" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Clave" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Id_rol" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_permisos_Result">
+          <Property Type="String" Name="Nombre_Permiso" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="Estado" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Consultar_Result">
+          <Property Type="Int32" Name="Num_OF" Nullable="true" />
+          <Property Type="String" Name="Codigo_primera" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Num_piezas" Nullable="true" />
+          <Property Type="Decimal" Name="Kg" Nullable="true" Precision="20" Scale="6" />
+          <Property Type="Int32" Name="Num_tarimas" Nullable="true" />
+          <Property Type="String" Name="Operadores" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Turno" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Pedaceria" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Faltante" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Sobrante" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Rechazo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Observaciones" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="20" Scale="6" />
+        </ComplexType>
+        <ComplexType Name="ConsultarAS_Result">
+          <Property Type="Int32" Name="Id_AtencionSucursales" Nullable="false" />
+          <Property Type="Int32" Name="Num_maquila" Nullable="true" />
+          <Property Type="String" Name="Documento" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="Division" Nullable="true" />
+          <Property Type="DateTime" Name="Fecha" Nullable="true" />
+          <Property Type="Time" Name="Hora" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Atencion_Sucursales">
+          <Key>
+            <PropertyRef Name="Id_AtencionSucursales" />
+          </Key>
+          <Property Name="Id_AtencionSucursales" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Num_maquila" Type="Int32" />
+          <Property Name="Documento" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Division" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Hora" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tarimas_CentroServicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Num_tarima" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Num_maquila" Type="Int32" />
+          <Property Name="Num_piezas" Type="Int32" />
+          <Property Name="Kg" Type="Decimal" Precision="20" Scale="6" />
+        </EntityType>
+        <EntityType Name="Segundas_CentroServicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Num_segundas" Type="Int32" />
+          <Property Name="Num_piezas" Type="Int32" />
+          <Property Name="Kg" Type="Decimal" Precision="20" Scale="0" />
+        </EntityType>
+        <EntityType Name="Estatus01_CentroServicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Maquila" Type="Int32" />
+          <Property Name="Estatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Calidad_Liberacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estatus" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre_libera" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Num_maquila" Type="Int32" />
+          <Property Name="Hora" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Centro_servicio">
+          <Key>
+            <PropertyRef Name="Num_OFE" />
+          </Key>
+          <Property Name="Num_OFE" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_primera" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Operadores" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Turno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pedaceria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Faltante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sobrante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Rechazo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Total" Type="Decimal" Precision="20" Scale="6" />
+        </EntityType>
+        <EntityType Name="Calidad_Detenido">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Defecto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Seguimiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Comentario" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre_detenido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Num_maquila" Type="Int32" />
+          <Property Name="Tipo_defecto" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo_segundas" Type="Decimal" Precision="20" Scale="6" />
+          <Property Name="Reproceso" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Hora" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LMNOP_SystemModelStoreContainer" CdmEntityContainer="LMNOP_SystemEntities">
+          <EntitySetMapping Name="Permisos">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Permisos">
+              <MappingFragment StoreEntitySet="Permisos">
+                <ScalarProperty Name="Id_Permiso" ColumnName="Id_Permiso" />
+                <ScalarProperty Name="Nombre_Permiso" ColumnName="Nombre_Permiso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Id_Rol" ColumnName="Id_Rol" />
+                <ScalarProperty Name="Nombre_rol" ColumnName="Nombre_rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles_Permisos">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Roles_Permisos">
+              <MappingFragment StoreEntitySet="Roles_Permisos">
+                <ScalarProperty Name="Id_rol_permiso" ColumnName="Id_rol_permiso" />
+                <ScalarProperty Name="Id_rol" ColumnName="Id_rol" />
+                <ScalarProperty Name="Id_Permiso" ColumnName="Id_Permiso" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Id_rol" ColumnName="Id_rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_datos" FunctionName="LMNOP_SystemModel.Store.sp_datos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LMNOP_SystemModel.sp_datos_Result">
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Id_rol" ColumnName="Id_rol" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_login" FunctionName="LMNOP_SystemModel.Store.sp_login">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LMNOP_SystemModel.sp_login_Result">
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Id_rol" ColumnName="Id_rol" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_permisos" FunctionName="LMNOP_SystemModel.Store.sp_permisos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LMNOP_SystemModel.sp_permisos_Result">
+                <ScalarProperty Name="Nombre_Permiso" ColumnName="Nombre_Permiso" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_registrar" FunctionName="LMNOP_SystemModel.Store.sp_registrar" />
+          <FunctionImportMapping FunctionImportName="Consultar" FunctionName="LMNOP_SystemModel.Store.Consultar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LMNOP_SystemModel.Consultar_Result">
+                <ScalarProperty Name="Num_OF" ColumnName="Num_OF" />
+                <ScalarProperty Name="Codigo_primera" ColumnName="Codigo_primera" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Num_piezas" ColumnName="Num_piezas" />
+                <ScalarProperty Name="Kg" ColumnName="Kg" />
+                <ScalarProperty Name="Num_tarimas" ColumnName="Num_tarimas" />
+                <ScalarProperty Name="Operadores" ColumnName="Operadores" />
+                <ScalarProperty Name="Turno" ColumnName="Turno" />
+                <ScalarProperty Name="Pedaceria" ColumnName="Pedaceria" />
+                <ScalarProperty Name="Faltante" ColumnName="Faltante" />
+                <ScalarProperty Name="Sobrante" ColumnName="Sobrante" />
+                <ScalarProperty Name="Rechazo" ColumnName="Rechazo" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Guardar" FunctionName="LMNOP_SystemModel.Store.Guardar" />
+          <FunctionImportMapping FunctionImportName="ConsultarAS" FunctionName="LMNOP_SystemModel.Store.ConsultarAS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LMNOP_SystemModel.ConsultarAS_Result">
+                <ScalarProperty Name="Id_AtencionSucursales" ColumnName="Id_AtencionSucursales" />
+                <ScalarProperty Name="Num_maquila" ColumnName="Num_maquila" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GuardarAS" FunctionName="LMNOP_SystemModel.Store.GuardarAS" />
+          <EntitySetMapping Name="Atencion_Sucursales">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Atencion_Sucursales">
+              <MappingFragment StoreEntitySet="Atencion_Sucursales">
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="Num_maquila" ColumnName="Num_maquila" />
+                <ScalarProperty Name="Id_AtencionSucursales" ColumnName="Id_AtencionSucursales" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tarimas_CentroServicio">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Tarimas_CentroServicio">
+              <MappingFragment StoreEntitySet="Tarimas_CentroServicio">
+                <ScalarProperty Name="Kg" ColumnName="Kg" />
+                <ScalarProperty Name="Num_piezas" ColumnName="Num_piezas" />
+                <ScalarProperty Name="Num_maquila" ColumnName="Num_maquila" />
+                <ScalarProperty Name="Num_tarima" ColumnName="Num_tarima" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Segundas_CentroServicio">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Segundas_CentroServicio">
+              <MappingFragment StoreEntitySet="Segundas_CentroServicio">
+                <ScalarProperty Name="Kg" ColumnName="Kg" />
+                <ScalarProperty Name="Num_piezas" ColumnName="Num_piezas" />
+                <ScalarProperty Name="Num_segundas" ColumnName="Num_segundas" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estatus01_CentroServicio">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Estatus01_CentroServicio">
+              <MappingFragment StoreEntitySet="Estatus01_CentroServicio">
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="Maquila" ColumnName="Maquila" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Calidad_Liberacion">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Calidad_Liberacion">
+              <MappingFragment StoreEntitySet="Calidad_Liberacion">
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="Num_maquila" ColumnName="Num_maquila" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Nombre_libera" ColumnName="Nombre_libera" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Centro_servicio">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Centro_servicio">
+              <MappingFragment StoreEntitySet="Centro_servicio">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Rechazo" ColumnName="Rechazo" />
+                <ScalarProperty Name="Sobrante" ColumnName="Sobrante" />
+                <ScalarProperty Name="Faltante" ColumnName="Faltante" />
+                <ScalarProperty Name="Pedaceria" ColumnName="Pedaceria" />
+                <ScalarProperty Name="Turno" ColumnName="Turno" />
+                <ScalarProperty Name="Operadores" ColumnName="Operadores" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Codigo_primera" ColumnName="Codigo_primera" />
+                <ScalarProperty Name="Num_OFE" ColumnName="Num_OFE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Calidad_Detenido">
+            <EntityTypeMapping TypeName="LMNOP_SystemModel.Calidad_Detenido">
+              <MappingFragment StoreEntitySet="Calidad_Detenido">
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Reproceso" ColumnName="Reproceso" />
+                <ScalarProperty Name="Codigo_segundas" ColumnName="Codigo_segundas" />
+                <ScalarProperty Name="Tipo_defecto" ColumnName="Tipo_defecto" />
+                <ScalarProperty Name="Num_maquila" ColumnName="Num_maquila" />
+                <ScalarProperty Name="Nombre_detenido" ColumnName="Nombre_detenido" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="Seguimiento" ColumnName="Seguimiento" />
+                <ScalarProperty Name="Defecto" ColumnName="Defecto" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

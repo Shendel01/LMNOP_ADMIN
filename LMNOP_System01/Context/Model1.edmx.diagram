@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0522b9de7c1a40888eda078aefe5aedf" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="LMNOP_SystemModel.Permisos" Width="1.5" PointX="0.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMNOP_SystemModel.Roles" Width="1.5" PointX="2.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMNOP_SystemModel.Roles_Permisos" Width="1.5" PointX="0.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMNOP_SystemModel.Usuarios" Width="1.5" PointX="2.125" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMNOP_SystemModel.Atencion_Sucursales" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="LMNOP_SystemModel.Tarimas_CentroServicio" Width="1.5" PointX="5.375" PointY="3" />
+        <EntityTypeShape EntityType="LMNOP_SystemModel.Segundas_CentroServicio" Width="1.5" PointX="7" PointY="0.75" />
+        <EntityTypeShape EntityType="LMNOP_SystemModel.Estatus01_CentroServicio" Width="1.5" PointX="7.125" PointY="2.75" />
+        <EntityTypeShape EntityType="LMNOP_SystemModel.Calidad_Liberacion" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="LMNOP_SystemModel.Centro_servicio" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LMNOP_SystemModel.Calidad_Detenido" Width="1.5" PointX="8.75" PointY="0.5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

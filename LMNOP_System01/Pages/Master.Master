@@ -1,0 +1,99 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="LMNOP_System01.Pages.Master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>
+
+        <asp:ContentPlaceHolder ID="title" runat="server"></asp:ContentPlaceHolder>
+
+    </title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/795f481e7d.js" crossorigin="anonymous"></script>
+    <link href="../Css/Css_general.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+        
+      <img src="../Images/lmnop_logo.png" width="100" height="150">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">
+        Home
+      </a>
+
+      <a class="navbar-item">
+        NO SÉ 
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          NO SÉ x2
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            Sub clas
+          </a>
+          <a class="navbar-item">
+            sub clas x2
+          </a>
+          <a class="navbar-item">
+            sub clas x3
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            sub clas x4
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end has-text-centered navbar-brand">
+
+      <div class="navbar-item" runat="server" id="divbuttons">
+        <div class="buttons">
+            <asp:Button text="Registrarse" runat="server" CssClass="button is-Dark is-rounded is-responsive" OnClick="Unnamed_Click"/>
+            <asp:Button text="Iniciar sesión" runat="server" CssClass="button is-primary is-light is-rounded is-responsive" OnClick="Unnamed_Click1"/>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>
+        </header>
+        <div>
+            <asp:ContentPlaceHolder ID="body" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+    <footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>LMNOP</strong> by <a href="https://jgthms.com">SHENDEL LÓPEZ ALMARAZ</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
