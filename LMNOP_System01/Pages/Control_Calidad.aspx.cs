@@ -21,7 +21,7 @@ namespace LMNOP_System01.Pages
 
         protected void detenida_Click(object sender, EventArgs e)
         {
-            Response.Redirect("C_Detenida.aspx");
+            Response.Redirect("CD.aspx");
         }
     }
 }

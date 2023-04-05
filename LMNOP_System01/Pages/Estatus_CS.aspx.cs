@@ -42,6 +42,7 @@ namespace LMNOP_System01.Pages
         private void Load_Data()
         {
             gridview.DataSource = list;
+            gridview.RowCreated += new GridViewRowEventHandler(gridView_RowCreated);
             gridview.DataBind();
         }
         void gridView_RowCreated(object sender, GridViewRowEventArgs e)

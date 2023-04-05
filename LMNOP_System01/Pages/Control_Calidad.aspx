@@ -16,16 +16,16 @@
         </label>
         </div>
                     <br />
-        <div class="field is-grouped">
+    <%--    <div class="field is-grouped">
             <div class="control">
                 <asp:Button runat="server" ID="liberada" CssClass="button is-success is-outlined is-rounded is-medium is-res" OnClick="liberada_Click" Text="Liberada"/>
             </div>
-        </div>
+        </div>--%>
 
 
         <div class="field is-grouped">
             <div class="control">
-                <asp:Button runat="server" ID="detenida" CssClass="button is-success is-outlined is-rounded is-medium is-res" OnClick="detenida_Click" Text="Detenida"/>
+                <asp:Button runat="server" ID="detenida" CssClass="button is-success is-outlined is-rounded is-medium is-res" OnClick="detenida_Click" Text="Maquilas"/>
             </div>
         </div>
 

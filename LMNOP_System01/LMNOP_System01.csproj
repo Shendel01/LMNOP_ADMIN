@@ -106,6 +106,7 @@
     <Content Include="Css\Css_general.css" />
     <Content Include="Images\lmnop_logo.png" />
     <Content Include="Pages\Atencion_sucursales.aspx" />
+    <Content Include="Pages\CD.aspx" />
     <Content Include="Pages\Centro_servicio.aspx" />
     <Content Include="Pages\Control_Calidad.aspx" />
     <Content Include="Pages\C_Detenida.aspx" />
@@ -210,6 +211,13 @@
     </Compile>
     <Compile Include="Pages\Atencion_sucursales.aspx.designer.cs">
       <DependentUpon>Atencion_sucursales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CD.aspx.cs">
+      <DependentUpon>CD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CD.aspx.designer.cs">
+      <DependentUpon>CD.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Centro_servicio.aspx.cs">
       <DependentUpon>Centro_servicio.aspx</DependentUpon>

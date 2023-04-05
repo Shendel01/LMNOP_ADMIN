@@ -49,7 +49,7 @@
 
 
          <div class="table-container">
-                   <asp:GridView ID="gridview" runat="server" Height="249px" CssClass="table is-selected">
+                  <asp:GridView ID="gridview" runat="server" Height="249px" CssClass="table is-selected">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
@@ -61,8 +61,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
-            </asp:GridView>
-
+                      </asp:GridView>
              </div>
 
          

@@ -10,6 +10,7 @@ namespace LMNOP_System01.Pages
 {
     public partial class Estatus_CS_Edit : System.Web.UI.Page
     {
+        
         private int id = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,6 +18,7 @@ namespace LMNOP_System01.Pages
             lblAlert.Text = "";
             if (!Page.IsPostBack)
             {
+                
                 getCentroServicoStatus();
             }
         }

@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace LMNOP_System01.Pages
 {
-    public partial class C_Detenida : System.Web.UI.Page
+    public partial class CD : System.Web.UI.Page
     {
         List<CalidadDetenidoModel> list = new List<CalidadDetenidoModel>();
 
@@ -25,7 +25,7 @@ namespace LMNOP_System01.Pages
             using (LMNOP_SystemEntities entities = new LMNOP_SystemEntities())
             {
                 var res = entities.Calidad_Detenido.ToList();
-               
+
 
                 foreach (var item in res)
                 {
@@ -44,7 +44,7 @@ namespace LMNOP_System01.Pages
                         Hora = item.Hora, /*(TimeSpan)item.Hora*/
                         Estatus = item.Estatus
                     });
-                    
+
                 }
 
             }
@@ -78,7 +78,7 @@ namespace LMNOP_System01.Pages
                     Reproceso = reproceso.Text,
                     Fecha = DateTime.Now,
                     Hora = DateTime.Now.ToString("HH:mm:ss"),
-                    Estatus = comentario.Text
+                    Estatus = estatusmaquila.Text
                 });
                 entities.SaveChanges();
             };
@@ -101,7 +101,7 @@ namespace LMNOP_System01.Pages
             string numMaquila = txtSearch.Text;
             list = getList().FindAll(p => p.Num_maquila.ToString().StartsWith(numMaquila));
 
-            Load_Data();    
+            Load_Data();
         }
     }
 }

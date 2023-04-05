@@ -15,7 +15,7 @@
         <EntityTypeShape EntityType="LMNOP_SystemModel.Estatus01_CentroServicio" Width="1.5" PointX="7.125" PointY="2.75" />
         <EntityTypeShape EntityType="LMNOP_SystemModel.Calidad_Liberacion" Width="1.5" PointX="8.75" PointY="3.75" />
         <EntityTypeShape EntityType="LMNOP_SystemModel.Centro_servicio" Width="1.5" PointX="3.75" PointY="0.75" />
-        <EntityTypeShape EntityType="LMNOP_SystemModel.Calidad_Detenido" Width="1.5" PointX="8.75" PointY="0.5" />
+        <EntityTypeShape EntityType="LMNOP_SystemModel.Calidad_Detenido" Width="1.5" PointX="3.75" PointY="4" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

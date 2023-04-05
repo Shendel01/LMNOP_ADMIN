@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-    <div class="container box">
+   <div class="container box">
 
         <div class="field">
             <label class="label">Número de maquila</label>

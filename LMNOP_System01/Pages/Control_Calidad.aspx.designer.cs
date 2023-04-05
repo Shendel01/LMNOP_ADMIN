@@ -15,15 +15,6 @@ namespace LMNOP_System01.Pages
     {
 
         /// <summary>
-        /// Control liberada.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button liberada;
-
-        /// <summary>
         /// Control detenida.
         /// </summary>
         /// <remarks>

@@ -31,6 +31,7 @@
           <Property Name="Reproceso" Type="varchar" MaxLength="2" />
           <Property Name="Fecha" Type="date" />
           <Property Name="Hora" Type="nchar" MaxLength="10" />
+          <Property Name="Estatus" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Calidad_Liberacion">
           <Key>
@@ -424,6 +425,7 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
           <Property Name="Reproceso" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="Fecha" Type="DateTime" Precision="0" />
           <Property Name="Hora" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Estatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -610,6 +612,7 @@ advertencia 6002: La tabla o vista 'LMNOP_System.dbo.Usuarios' no tiene definida
           <EntitySetMapping Name="Calidad_Detenido">
             <EntityTypeMapping TypeName="LMNOP_SystemModel.Calidad_Detenido">
               <MappingFragment StoreEntitySet="Calidad_Detenido">
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
                 <ScalarProperty Name="Hora" ColumnName="Hora" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="Reproceso" ColumnName="Reproceso" />

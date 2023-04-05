@@ -18,6 +18,7 @@ namespace LMNOP_System01.Modelo
         public string Reproceso { get; set; }
         public String Fecha { get; set; }
         public String Hora { get; set; }
+        public string Estatus { get; set; }
 
     }
 }
