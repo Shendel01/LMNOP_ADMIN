@@ -55,7 +55,15 @@ namespace LMNOP_System01.Pages
         private void Load_Data()
         {
             gridview.DataSource = list;
+            gridview.RowCreated += new GridViewRowEventHandler(gridView_RowCreated);
             gridview.DataBind();
+        }
+        void gridView_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            GridViewRow row = e.Row;
+            TableCell actionsCell = row.Cells[0];
+            row.Cells.Remove(actionsCell);
+            row.Cells.Add(actionsCell);
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -103,5 +111,7 @@ namespace LMNOP_System01.Pages
 
             Load_Data();
         }
+
+
     }
 }
