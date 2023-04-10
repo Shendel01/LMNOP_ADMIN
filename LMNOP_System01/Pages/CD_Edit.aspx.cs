@@ -33,7 +33,7 @@ namespace LMNOP_System01.Pages
                     tipo_defecto.Text = res.Tipo_defecto;
                     defecto.Text = res.Defecto;
                     seguimiento.Text = res.Seguimiento;
-                    codigo_segundas.Text = res.Codigo_segundas.ToString();
+                    codigo_segundas.Text = ((int?)res.Codigo_segundas).ToString();
                     comentario.Text = res.Comentario;
                     nombre_detenido.Text = res.Nombre_detenido;
                     reproceso.Text = res.Reproceso;
@@ -71,6 +71,11 @@ namespace LMNOP_System01.Pages
             {
                 lblAlert.Text = "Error al intentar guardar el registro. Contacte con un administrador.";
             }
+        }
+
+        protected void Cancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CD.aspx");
         }
     }
 }

@@ -90,6 +90,12 @@
                 <asp:Button runat="server" ID="btnguardar" CssClass="button is-success is-outlined is-rounded is-medium is-res" Text="Guardar" OnClick="btnguardar_Click"/>
             </div>
         </div>
+          <div class="field is-grouped">
+            <div class="control">
+                <asp:Button runat="server" ID="Cancelar" CssClass="button is-danger is-outlined is-rounded is-medium is-res" OnClick="Cancelar_Click" Text="Cancelar"/>
+            </div>
+        </div>
+
                             <div class="field is-grouped">
             <asp:Label runat="server" ID="lblAlert" Text="."></asp:Label>
         </div>

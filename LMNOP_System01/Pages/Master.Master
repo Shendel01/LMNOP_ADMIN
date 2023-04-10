@@ -37,7 +37,7 @@
   </div>
 
   <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
+   <%-- <div class="navbar-start">
       <a class="navbar-item">
         Home
       </a>
@@ -67,13 +67,13 @@
           </a>
         </div>
       </div>
-    </div>
+    </div>--%>
 
     <div class="navbar-end has-text-centered navbar-brand">
 
       <div class="navbar-item" runat="server" id="divbuttons">
         <div class="buttons">
-            <asp:Button text="Registrarse" runat="server" CssClass="button is-Dark is-rounded is-responsive" OnClick="Unnamed_Click"/>
+          <%--  <asp:Button text="Registrarse" runat="server" CssClass="button is-Dark is-rounded is-responsive" OnClick="Unnamed_Click"/>--%>
             <asp:Button text="Iniciar sesión" runat="server" CssClass="button is-primary is-light is-rounded is-responsive" OnClick="Unnamed_Click1"/>
         </div>
       </div>
@@ -91,7 +91,7 @@
     <footer class="footer">
   <div class="content has-text-centered">
     <p>
-      <strong>LMNOP</strong> by <a href="https://jgthms.com">SHENDEL LÓPEZ ALMARAZ</a>
+     <%-- <strong>LMNOP</strong> by <a href="https://jgthms.com">SHENDEL LÓPEZ ALMARAZ</a>--%>
     </p>
   </div>
 </footer>

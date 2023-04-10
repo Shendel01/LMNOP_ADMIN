@@ -53,11 +53,14 @@
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <span class="icon is-small is-left">
+                             <a href="CD_Edit.aspx?ID=<%# DataBinder.Eval(Container.DataItem, "id") %>">
+                                     EDITAR
+                                </a>
+                      <%--      <span class="icon is-small is-left">
                                 <a href="Estatus_CS_Edit.aspx?ID=<%# DataBinder.Eval(Container.DataItem, "id") %>">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
-                            </span>
+                            </span>--%>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
