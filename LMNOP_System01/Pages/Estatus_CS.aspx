@@ -53,7 +53,7 @@
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
-                             <a href="CD_Edit.aspx?ID=<%# DataBinder.Eval(Container.DataItem, "id") %>">
+                             <a href="Estatus_CS_Edit.aspx?ID=<%# DataBinder.Eval(Container.DataItem, "id") %>">
                                      EDITAR
                                 </a>
                       <%--      <span class="icon is-small is-left">
@@ -74,8 +74,8 @@
              <asp:Button runat="server" ID="tarimas" CssClass="button is-info is-rounded is-medium is-res" OnClick="tarimas_Click" Text="Tarimas"/>
              <asp:Button runat="server" ID="segundas" CssClass="button is-info is-rounded is-medium is-res" OnClick="segundas_Click" Text="Segundas"/>
              <asp:Button runat="server" ID="ofe" CssClass="button is-info is-rounded is-medium is-res" OnClick="ofe_Click" Text="Llenado de OFE"/>
-                     <asp:Button runat="server" ID="maquila_liberada" CssClass="button is-info is-rounded is-medium is-res" OnClick="maquila_liberada_Click" Text="Maquila liberada"/>
-             <asp:Button runat="server" ID="maquila_detenida" CssClass="button is-info is-rounded is-medium is-res" OnClick="maquila_detenida_Click" Text="Maquila detenida"/>
+                     <%--<asp:Button runat="server" ID="maquila_liberada" CssClass="button is-info is-rounded is-medium is-res" OnClick="maquila_liberada_Click" Text="Maquila liberada"/>--%>
+             <asp:Button runat="server" ID="maquila_detenida" CssClass="button is-info is-rounded is-medium is-res" OnClick="maquila_detenida_Click" Text="Maquila"/>
              <asp:Button runat="server" ID="back" CssClass="button is-danger is-outlined is-rounded is-medium is-res" OnClick="back_Click" Text="Regresar"/> <%--Index--%>
              
             </div>

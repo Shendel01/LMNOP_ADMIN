@@ -13,10 +13,10 @@ namespace LMNOP_System01.Pages
         {
 
         }
-        protected void liberada_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Estatus_CL.aspx");
-        }
+        //protected void liberada_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("Estatus_CL.aspx");
+        //}
 
         protected void detenida_Click(object sender, EventArgs e)
         {

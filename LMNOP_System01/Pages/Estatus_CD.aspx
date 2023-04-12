@@ -26,7 +26,7 @@
 
                       <div class="field is-grouped">
             <div class="control">
-                <asp:Button runat="server" ID="estatus" CssClass="button is-success is-rounded is-medium is-res" title="No puedes editar este campo" disabled OnClick="estatus_Click" Text="Maquila detenida"/>
+                <asp:Button runat="server" ID="estatus" CssClass="button is-success is-rounded is-medium is-res" title="No puedes editar este campo" disabled OnClick="estatus_Click" Text="Maquila"/>
             </div>
         </div>
         </div>

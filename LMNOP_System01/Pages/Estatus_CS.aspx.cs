@@ -92,10 +92,10 @@ namespace LMNOP_System01.Pages
             Response.Redirect("Index.aspx");
         }
 
-        protected void maquila_liberada_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Estatus_CL.aspx");
-        }
+        //protected void maquila_liberada_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("Estatus_CL.aspx");
+        //}
 
         protected void maquila_detenida_Click(object sender, EventArgs e)
         {

@@ -62,8 +62,7 @@
 
         <div class="field is-grouped">
             <div class="control">
-                <asp:Button runat="server" ID="maquila_liberada" CssClass="button is-info is-rounded is-medium is-res" OnClick="maquila_liberada_Click" Text="Maquila liberada"/>
-                <asp:Button runat="server" ID="maquila_detenida" CssClass="button is-info is-rounded is-medium is-res" OnClick="maquila_detenida_Click" Text="Maquila detenida"/>
+                <asp:Button runat="server" ID="maquila_detenida" CssClass="button is-info is-rounded is-medium is-res" OnClick="maquila_detenida_Click" Text="Maquila"/>
                 <asp:Button runat="server" ID="estatus" CssClass="button is-info is-rounded is-medium is-res" OnClick="estatus_Click" Text="Estatus"/>
             </div>
         </div>
